@@ -1,5 +1,11 @@
-function repeat(operation, num) {
+function trampoline(fn) {
+    while (fn && fn instanceof Function) {
+        fn = fn.apply(fn.context, fn.args);
+    }
+    return fn;
+}
 
+function repeat(operation, num) {
 
     function _start(operation, num){
         if(num === 0){
