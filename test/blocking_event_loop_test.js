@@ -4,11 +4,10 @@ repeat = require('../solution/blocking_event_loop.js');
 
 describe('repeat()', function() {
     var count = 0;
-    var cycles = 10000;
+    var cycles = 1000;
 
     function operation() {
         for(var i = 0; i < 1000; i++) {
-
         };
         count++;
     }
@@ -23,7 +22,7 @@ describe('repeat()', function() {
 
             if (count === cycles) done('Fail');
             if (end - start < 1500) {
-                done('Interrupted');
+                done();
             } else {
                 done('Interrupted too late.')
             }
